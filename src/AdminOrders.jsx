@@ -5,7 +5,7 @@ function AdminOrders() {
   async function updateStatus(orderId, newStatus) {
   try {
     const response = await fetch(
-      `http://localhost:8080/api/orders/${orderId}/status?status=${newStatus}`,
+      `https://project-backend-nk3b.onrender.com/api/orders/${orderId}/status?status=${newStatus}`,
       {
         method: "PUT"
       }
@@ -30,7 +30,7 @@ function AdminOrders() {
 }
 
   useEffect(() => {
-    fetch("http://localhost:8080/api/orders")
+    fetch("https://project-backend-nk3b.onrender.com/api/orders")
       .then((response) => response.json())
       .then((data) => {
         setOrders(data);

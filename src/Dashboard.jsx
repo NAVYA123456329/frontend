@@ -6,7 +6,7 @@ function Dashboard() {
   const [selectedRestaurant, setSelectedRestaurant] = useState(null); 
   const [cart, setCart] = useState([]); 
   const [foodItems, setFoodItems] = useState([]); useEffect(() => { 
-    fetch("http://localhost:8080/api/food-items").then((response) => response.json()).then((data) => { setFoodItems(data); }).catch(() => { alert("Cannot load food items"); }); }, []); 
+    fetch("https://project-backend-nk3b.onrender.com/api/food-items").then((response) => response.json()).then((data) => { setFoodItems(data); }).catch(() => { alert("Cannot load food items"); }); }, []); 
   const restaurants = [{ name: "Pizza Palace", items: [{ name: "Margherita Pizza", price: 199 }, { name: "Veg Burger", price: 149 }, { name: "Pasta", price: 179 }] }, { name: "Spice Kitchen", items: [{ name: "Biryani", price: 220 }, { name: "Noodles", price: 160 }, { name: "Paneer Curry", price: 180 }] }, { name: "Sweet Treats", items: [{ name: "Chocolate Cake", price: 120 }, { name: "Ice Cream", price: 80 }, { name: "Brownie", price: 100 }] }]; 
   function addToCart(item) {
   const existingItem = cart.find(
@@ -99,7 +99,7 @@ function Dashboard() {
         <button className="place-order-button" onClick={async () => { if (cart.length === 0) { alert("Your cart is empty!"); return; }   
          const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
              try { 
-               const response = await fetch("http://localhost:8080/api/orders", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ total: total, status: "PLACED" }) }); if (response.ok) { alert("Order placed successfully!"); setCart([]); 
+               const response = await fetch("https://project-backend-nk3b.onrender.com/api/orders", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ total: total, status: "PLACED" }) }); if (response.ok) { alert("Order placed successfully!"); setCart([]); 
 
              } else { 
             alert("Order failed!"); } } catch (error) { alert("Cannot connect to backend"); } }} > Place Order

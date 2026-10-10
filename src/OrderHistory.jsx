@@ -4,7 +4,7 @@ function OrderHistory() {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8080/api/orders")
+    fetch("https://project-backend-nk3b.onrender.com/api/orders")
       .then((response) => response.json())
       .then((data) => {
         setOrders(data);

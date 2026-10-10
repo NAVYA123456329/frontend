@@ -13,7 +13,7 @@ function AdminFoodItems() {
 
     try {
       const response = await fetch(
-        "http://localhost:8080/api/food-items",
+        "https://project-backend-nk3b.onrender.com/api/food-items",
         {
           method: "POST",
           headers: {
@@ -44,7 +44,7 @@ function AdminFoodItems() {
   async function loadFoodItems() {
     try {
       const response = await fetch(
-        "http://localhost:8080/api/food-items"
+        "https://project-backend-nk3b.onrender.com/api/food-items"
       );
 
       const data = await response.json();

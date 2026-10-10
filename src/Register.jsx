@@ -33,7 +33,7 @@ function Register() {
 
     try {
       const response = await fetch(
-        "http://localhost:8080/api/users/register",
+        "https://project-backend-nk3b.onrender.com/api/users/register",
         {
           method: "POST",
           headers: {
